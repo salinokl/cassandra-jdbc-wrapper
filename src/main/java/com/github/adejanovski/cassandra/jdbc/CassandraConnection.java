@@ -342,6 +342,8 @@ public class CassandraConnection extends AbstractConnection implements Connectio
 
     public CassandraPreparedStatement prepareStatement(String cql) throws SQLException
     {
+        cql = TeiidUtil.convertTeiidSql(cql);
+        
     	CassandraPreparedStatement prepStmt = preparedStatements.get(cql);    	
     	if(prepStmt==null){
     		// Statement didn't exist
@@ -367,6 +369,8 @@ public class CassandraConnection extends AbstractConnection implements Connectio
 
     public CassandraPreparedStatement prepareStatement(String cql, int rsType, int rsConcurrency, int rsHoldability) throws SQLException
     {
+        cql = TeiidUtil.convertTeiidSql(cql);
+
         checkNotClosed();
         CassandraPreparedStatement statement = new CassandraPreparedStatement(this, cql, rsType,rsConcurrency,rsHoldability);
         statements.add(statement);

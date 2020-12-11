@@ -433,16 +433,14 @@ class ManagedConnection extends AbstractConnection implements Connection
 		}
 	}
 
-	@Override
 	public String getSchema() throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public void setSchema(String arg0) throws SQLException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
