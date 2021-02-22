@@ -58,6 +58,10 @@ public class TeiidUtil {
             result = result.replaceFirst(placeHolder, replacment);
         }
 
+        String upperCaseSql = result.toUpperCase();
+        if (upperCaseSql.contains("SELECT") == true && upperCaseSql.contains("ALLOW FILTERING") == false)
+            result += " ALLOW FILTERING";
+
         return result;
     }
 }
